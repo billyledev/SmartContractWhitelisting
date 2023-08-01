@@ -1,6 +1,6 @@
 # Smart Contract Whitelisting
 
-Everything you need to setup an address whitelisting in a Solidity smart contract.
+Everything you need to setup address whitelisting in a Solidity smart contract.
 
 <br/>
 
