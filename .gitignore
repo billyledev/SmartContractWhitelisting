@@ -1,0 +1,21 @@
+# NodeJS common
+node_modules/
+.env*
+yarn-error.log
+
+# Editor files
+.vscode
+
+# API related
+dist/
+whitelist.json
+
+# Smart contract related
+coverage
+coverage.json
+typechain
+typechain-types
+
+# Hardhat files
+cache
+artifacts

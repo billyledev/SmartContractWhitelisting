@@ -1,0 +1,19 @@
+{
+  "name": "smart-contract-whitelisting",
+  "version": "1.0.0",
+  "author": "billyledev",
+  "private": true,
+  "scripts": {
+    "contract:lint": "yarn workspace whitelist-contract run lint",
+    "contract:compile": "yarn workspace whitelist-contract run compile",
+    "contract:test": "yarn workspace whitelist-contract run test",
+    "api:lint": "yarn workspace whitelist-api run lint",
+    "api:build": "yarn workspace whitelist-api run build",
+    "api:start": "yarn workspace whitelist-api run start",
+    "api:get-merkle-root": "yarn workspace whitelist-api run get-merkle-root"
+  },
+  "workspaces": [
+    "whitelist-contract",
+    "whitelist-api"
+  ]
+}
