@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "eslint scripts/*.ts test/*.ts",
     "compile": "hardhat compile",
-    "test": "hardhat test"
+    "test": "hardhat test",
+    "coverage": "hardhat coverage"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.3",

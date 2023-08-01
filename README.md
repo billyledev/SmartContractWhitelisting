@@ -49,6 +49,10 @@ Run `yarn contract:compile` at the root of this repository to build the whitelis
 
 Run `yarn contract:test` at the root of this repository to run unit tests on the whitelist contract code.
 
+### Checking the tests coverage
+
+Run `yarn contract:coverage` at the root of this repository to run a tests coverage analysis.
+
 <br/>
 
 ## Whitelist API
