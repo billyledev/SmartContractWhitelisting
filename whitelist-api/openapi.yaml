@@ -1,0 +1,89 @@
+openapi: 3.0.3
+info:
+  title: Whitelist API
+  description: An API that can compute merkle proofs and verify them
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Merkle
+    description: Compute and verify merkle proofs
+paths:
+  /merkle/proof/{address}:
+    get:
+      tags:
+        - Merkle
+      summary: Get the merkle proof for a given address
+      description: Returns an array containing the merkle proof, or a 404 error if the address is not in the whitelist
+      operationId: getMerkleProof
+      parameters:
+        - name: address
+          in: path
+          description: The whitelisted wallet address
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Computed merkle proof
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  example: "0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+        404:
+          description: Address not in whitelist
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statusCode:
+                    type: integer
+                    example: 404
+                  error:
+                    type: string
+                    example: Not Found
+                  message:
+                    type: string
+                    example: Not in whitelist
+  /merkle/verify/{address}:
+    post:
+      tags:
+        - Merkle
+      summary: Verify the merkle proof for a given address
+      description: Returns true if the address is whitelisted, otherwise false
+      operationId: verifyMerkleProof
+      parameters:
+        - name: address
+          in: path
+          description: The whitelisted wallet address
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: The associated merkle proof
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                proof:
+                  type: array
+                  items:
+                    type: string
+                    example: "0x0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+      responses:
+        200:
+          description: Verification result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  valid:
+                    type: boolean
+                    example: true
