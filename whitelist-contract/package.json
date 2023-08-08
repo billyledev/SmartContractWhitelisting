@@ -7,7 +7,8 @@
     "lint": "eslint scripts/*.ts test/*.ts",
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "coverage": "hardhat coverage"
+    "coverage": "hardhat coverage",
+    "gas-report": "REPORT_GAS=true yarn test"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^4.9.3",

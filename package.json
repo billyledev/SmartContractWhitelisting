@@ -8,6 +8,7 @@
     "contract:compile": "yarn workspace whitelist-contract run compile",
     "contract:test": "yarn workspace whitelist-contract run test",
     "contract:coverage": "yarn workspace whitelist-contract run coverage",
+    "contract:gas-report": "yarn workspace whitelist-contract run gas-report",
     "api:lint": "yarn workspace whitelist-api run lint",
     "api:build": "yarn workspace whitelist-api run build",
     "api:start": "yarn workspace whitelist-api run start",

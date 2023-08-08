@@ -53,6 +53,10 @@ Run `yarn contract:test` at the root of this repository to run unit tests on the
 
 Run `yarn contract:coverage` at the root of this repository to run a tests coverage analysis.
 
+### Checking the gas costs
+
+Run `yarn contract:gas-report` at the root of this repository to generate a gas costs report.
+
 <br/>
 
 ## Whitelist API
