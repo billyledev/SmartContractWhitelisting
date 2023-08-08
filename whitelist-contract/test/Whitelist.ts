@@ -80,10 +80,10 @@ describe('Whitelist', function () {
       } = await loadFixture(deployWhitelistFixture)
 
       await expect(whitelist.connect(inWhitelist).onlyWhitelisted(inWhitelistProof))
-        .to.not.be.rejectedWith('You are not on the whitelist.')
+        .to.not.be.revertedWithCustomError(whitelist, 'NotWhitelisted')
 
       await expect(whitelist.connect(notInWhitelist).onlyWhitelisted(notInWhitelistProof))
-        .to.be.rejectedWith('You are not on the whitelist.')
+        .to.be.revertedWithCustomError(whitelist, 'NotWhitelisted')
     })
 
     it('Should only allow people with their own proof', async function () {
@@ -94,7 +94,7 @@ describe('Whitelist', function () {
       } = await loadFixture(deployWhitelistFixture)
 
       await expect(whitelist.connect(notInWhitelist).onlyWhitelisted(inWhitelistProof))
-        .to.be.rejectedWith('You are not on the whitelist.')
+        .to.be.revertedWithCustomError(whitelist, 'NotWhitelisted')
     })
   })
 })

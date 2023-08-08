@@ -5,6 +5,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
 contract Whitelist is Ownable {
+  error NotWhitelisted();
+
   bytes32 public merkleRoot;
 
   constructor(bytes32 _merkleRoot) {
@@ -16,7 +18,7 @@ contract Whitelist is Ownable {
   }
 
   function onlyWhitelisted(bytes32[] calldata _proof) external view {
-    require(isWhitelisted(msg.sender, _proof), "You are not on the whitelist.");
+    if (!isWhitelisted(msg.sender, _proof)) revert NotWhitelisted();
   }
 
   function isWhitelisted(address account, bytes32[] calldata proof) internal view returns (bool) {
